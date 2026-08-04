@@ -28,5 +28,4 @@ test('TC-28 — Acceso al flujo de pago de renovación sin iniciar sesión', asy
 
   await expect(page).not.toHaveURL(/login/i);
 
-  await page.screenshot({ path: 'screenshots/TC-28-detalles-dominio.png' });
 });
