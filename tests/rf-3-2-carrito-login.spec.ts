@@ -6,6 +6,8 @@ test.use({
 
 test('test-tc22', async ({ page }) => {
     await page.goto('https://dev2.registro.gt/');
+    await page.getByText('No volver a mostrar este').click();
+    await page.getByRole('button', { name: 'Entendido' }).click();
     await page.getByRole('link', { name: 'Carrito' }).click();
     await page.getByText('shopping_cart Tu carrito est').click();
     await page.getByRole('link', { name: 'Buscar un dominio' }).click();
