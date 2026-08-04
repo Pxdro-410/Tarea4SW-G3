@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-test('test', async ({ page }) => {
-    await page.goto('https://gt.nic.gt/');
-    await page.getByRole('link', { name: 'Estadísticas' }).click();
+test('TC-08  —  Filtrado por un rango de fechas válido ', async ({ page }) => {
+    await page.goto('https://gt.nic.gt/estadisticas');
+    //await page.getByRole('link', { name: 'Estadísticas' }).click();
     await page.getByRole('button', { name: 'analytics Consultar' }).click();
     const downloadPromise = page.waitForEvent('download');
     await page.getByRole('button', { name: 'download Exportar CSV' }).click();
