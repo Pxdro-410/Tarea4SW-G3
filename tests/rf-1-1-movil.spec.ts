@@ -1,9 +1,11 @@
 import { test, expect } from '@playwright/test';
+import { dismissTestPageNotice } from './helpers/test-page-notice';
 
 test.use({ viewport: { width: 375, height: 667 } });
 
 test('TC-02 - Visualización de la información principal en viewport móvil', async ({ page }) => {
   await page.goto('https://gt.nic.gt/', { waitUntil: 'domcontentloaded' });
+  await dismissTestPageNotice(page);
 
   await expect(page.getByText('Registra tu dominio .gt hoy mismo.')).toBeVisible();
   await expect(page.getByPlaceholder('escribe un nombre de dominio')).toBeVisible();

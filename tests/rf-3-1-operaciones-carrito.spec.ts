@@ -34,6 +34,7 @@ async function openCart(page: import('@playwright/test').Page) {
             if (!isTransientNavigationAbort || attempt === 1) throw error;
         }
     }
+    await dismissTestPageNotice(page);
     await expect(page).toHaveURL(/\/cart\/?$/);
 }
 

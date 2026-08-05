@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { dismissTestPageNotice } from './helpers/test-page-notice';
 
 const baseUrl = 'https://gt.nic.gt';
 
@@ -13,6 +14,7 @@ test('TC-03 - Navegación por las páginas de la sección Nosotros', async ({ pa
 
   for (const item of nosotrosPages) {
     await page.goto(baseUrl, { waitUntil: 'domcontentloaded' });
+    await dismissTestPageNotice(page);
     await page.getByRole('button', { name: /Nosotros/i }).first().click();
 
     const link = page.locator(`a[href="${item.href}"]:visible`).first();
