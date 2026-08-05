@@ -30,5 +30,33 @@ Se diseñaron un total de 33 casos de prueba (3 por cada requisito). Los scripts
 ## Configuración e Instalación
 
 1. **Clonar el repositorio:**
+
    ```bash
    git clone https://github.com/Pxdro-410/Tarea4SW-G3.git
+   cd Tarea4SW-G3
+   ```
+
+2. **Instalar las dependencias y los navegadores de Playwright:**
+
+   ```bash
+   npm install
+   npx playwright install
+   ```
+
+3. **Ejecutar las pruebas:**
+
+   ```bash
+   npx playwright test
+   ```
+
+## Evidencia en video
+
+El siguiente video reúne la ejecución satisfactoria de las pruebas automatizadas:
+
+<video src="./test-results/videos/video-tests-passed.webm" controls width="100%">
+  Tu visor de Markdown no permite reproducir videos WebM incrustados.
+</video>
+
+Si el reproductor no aparece en tu visor de Markdown, puedes [reproducir o descargar el video consolidado](./test-results/videos/video-tests-passed.webm) directamente.
+
+Los videos individuales de cada caso de prueba se encuentran en la carpeta [`test-results/videos`](./test-results/videos/). Sus nombres identifican el archivo de pruebas, el caso ejecutado, el navegador y, cuando corresponde, cada parte o reintento de la grabación.
