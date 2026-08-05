@@ -51,12 +51,10 @@ Se diseñaron un total de 33 casos de prueba (3 por cada requisito). Los scripts
 
 ## Evidencia en video
 
-El siguiente video reúne la ejecución satisfactoria de las pruebas automatizadas:
+La siguiente vista previa recorre la ejecución satisfactoria de las pruebas automatizadas. Haz clic sobre ella para reproducir o descargar el video completo:
 
-<video src="./test-results/videos/video-tests-passed.webm" controls width="100%">
-  Tu visor de Markdown no permite reproducir videos WebM incrustados.
-</video>
+[![Vista previa de la ejecución de las pruebas](./docs/video-preview.gif)](https://raw.githubusercontent.com/Pxdro-410/Tarea4SW-G3/main/test-results/videos/video-tests-passed.webm)
 
-Si el reproductor no aparece en tu visor de Markdown, puedes [reproducir o descargar el video consolidado](./test-results/videos/video-tests-passed.webm) directamente.
+También puedes [abrir directamente el video consolidado](https://raw.githubusercontent.com/Pxdro-410/Tarea4SW-G3/main/test-results/videos/video-tests-passed.webm).
 
 Los videos individuales de cada caso de prueba se encuentran en la carpeta [`test-results/videos`](./test-results/videos/). Sus nombres identifican el archivo de pruebas, el caso ejecutado, el navegador y, cuando corresponde, cada parte o reintento de la grabación.
