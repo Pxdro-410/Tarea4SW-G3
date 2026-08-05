@@ -22,6 +22,14 @@ async function storedCart(page: import('@playwright/test').Page) {
 }
 
 async function openCart(page: import('@playwright/test').Page) {
+    // Reservar un dominio puede iniciar automáticamente la navegación al carrito.
+    // Esperar primero evita lanzar un segundo goto hacia el mismo destino.
+    await page.waitForLoadState('domcontentloaded').catch(() => {});
+    if (/\/cart\/?$/.test(new URL(page.url()).pathname)) {
+        await dismissTestPageNotice(page);
+        return;
+    }
+
     for (let attempt = 0; attempt < 2; attempt++) {
         try {
             await page.goto('https://gt.nic.gt/cart/', { waitUntil: 'domcontentloaded' });
@@ -30,8 +38,15 @@ async function openCart(page: import('@playwright/test').Page) {
             const isTransientNavigationAbort =
                 error instanceof Error &&
                 (error.message.includes('NS_BINDING_ABORTED') ||
-                    error.message.includes('net::ERR_ABORTED'));
+                    error.message.includes('net::ERR_ABORTED') ||
+                    error.message.includes('is interrupted by another navigation'));
             if (!isTransientNavigationAbort || attempt === 1) throw error;
+
+            const reachedCart = await page
+                .waitForURL(/\/cart\/?$/, { timeout: 5_000 })
+                .then(() => true)
+                .catch(() => false);
+            if (reachedCart) break;
         }
     }
     await dismissTestPageNotice(page);

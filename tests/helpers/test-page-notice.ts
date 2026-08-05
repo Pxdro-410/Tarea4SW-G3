@@ -19,7 +19,9 @@ export async function dismissTestPageNotice(page: Page) {
     .catch(() => false);
   if (!appeared) return;
 
-  await modal.getByRole('checkbox', { name: /No volver a mostrar/i }).check();
-  await modal.getByRole('button', { name: /Entendido/i }).click();
+  await modal
+    .getByRole('checkbox', { name: /No volver a mostrar|Don't show this message again/i })
+    .check();
+  await modal.getByRole('button', { name: /Entendido|Understood/i }).click();
   await modal.waitFor({ state: 'hidden' });
 }
